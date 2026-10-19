@@ -1,0 +1,3006 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="color-scheme" content="light dark">
+    <title>Anaira Beauty – Luxury Makeup &amp; Skincare</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@400;500;600;700&family=Jost:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #fffaf8;
+            --fg: #141414;
+            --mut: #6b6168;
+            --card: #fff;
+            --line: #eadfe0;
+            --ac: #ff2e7e;
+            --hd: rgba(255, 250, 248, .92);
+            box-sizing: border-box;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px)
+        }
+
+        @media(prefers-color-scheme:dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #0f0d0e;
+                --fg: #f5eeee;
+                --mut: #a89aa0;
+                --card: #1a1618;
+                --line: #2c2528;
+                --hd: rgba(15, 13, 14, .92)
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg: #0f0d0e;
+            --fg: #f5eeee;
+            --mut: #a89aa0;
+            --card: #1a1618;
+            --line: #2c2528;
+            --hd: rgba(15, 13, 14, .92)
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 70px)
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--fg);
+            font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+            line-height: 1.5;
+            overflow-x: hidden
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0 0 auto;
+            height: env(safe-area-inset-top, 0px);
+            background: var(--hd);
+            z-index: 60
+        }
+
+        button {
+            font: inherit;
+            cursor: pointer;
+            border: 0;
+            color: inherit;
+            background: none
+        }
+
+        .bar {
+            background: #141414;
+            color: #fff;
+            font-size: 13px;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 8px 0
+        }
+
+        .bar div {
+            display: inline-block;
+            animation: mq 28s linear infinite
+        }
+
+        .bar span {
+            margin: 0 28px
+        }
+
+        @keyframes mq {
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        header {
+            position: sticky;
+            top: env(safe-area-inset-top, 0px);
+            z-index: 50;
+            background: linear-gradient(90deg, rgba(255, 250, 248, .96), rgba(255, 250, 248, .83)), url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1800&q=85") center 42%/cover;
+            border-bottom: 1px solid var(--line);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 5vw;
+            min-height: 92px;
+            box-shadow: 0 4px 24px rgba(60, 20, 36, .07)
+        }
+
+        .logo {
+            font-weight: 900;
+            font-size: 24px;
+            letter-spacing: .12em
+        }
+
+        .logo b {
+            color: var(--ac)
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+            font-size: 14px;
+            font-weight: 600
+        }
+
+        nav a {
+            color: inherit;
+            text-decoration: none;
+            position: relative
+        }
+
+        nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            height: 2px;
+            width: 0;
+            background: var(--ac);
+            transition: .3s
+        }
+
+        nav a:hover::after {
+            width: 100%
+        }
+
+        .ic {
+            display: flex;
+            gap: 10px;
+            align-items: center
+        }
+
+        .cb {
+            position: relative;
+            background: var(--fg);
+            color: var(--bg);
+            border-radius: 99px;
+            padding: 8px 16px;
+            font-weight: 700;
+            font-size: 14px
+        }
+
+        .cb.pop {
+            animation: pop .4s
+        }
+
+        @keyframes pop {
+            50% {
+                transform: scale(1.18)
+            }
+        }
+
+        .hm {
+            display: none;
+            font-size: 24px
+        }
+
+        .hero {
+            position: relative;
+            height: min(78vh, 620px);
+            overflow: hidden
+        }
+
+        .sl {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            padding: 0 7vw;
+            color: #fff;
+            opacity: 0;
+            transform: scale(1.04);
+            transition: opacity .8s, transform 1.2s;
+            pointer-events: none
+        }
+
+        .sl.on {
+            opacity: 1;
+            transform: none;
+            pointer-events: auto
+        }
+
+        .sl::before,
+        .sl::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .14);
+            animation: fl 7s ease-in-out infinite
+        }
+
+        .sl::before {
+            width: 340px;
+            height: 340px;
+            right: 8%;
+            top: 10%
+        }
+
+        .sl::after {
+            width: 160px;
+            height: 160px;
+            right: 30%;
+            bottom: 8%;
+            animation-delay: -3s
+        }
+
+        @keyframes fl {
+            50% {
+                transform: translateY(-26px) scale(1.06)
+            }
+        }
+
+        .sl div {
+            position: relative;
+            max-width: 560px;
+            z-index: 1
+        }
+
+        .sl small {
+            letter-spacing: .2em;
+            font-weight: 700;
+            font-size: 12px
+        }
+
+        .sl h1 {
+            font-size: clamp(34px, 6vw, 72px);
+            line-height: 1.02;
+            margin: 10px 0 16px;
+            font-weight: 900
+        }
+
+        .sl.on h1,
+        .sl.on small,
+        .sl.on p,
+        .sl.on a {
+            animation: up .8s both
+        }
+
+        .sl.on h1 {
+            animation-delay: .1s
+        }
+
+        .sl.on p {
+            animation-delay: .2s
+        }
+
+        .sl.on a {
+            animation-delay: .3s
+        }
+
+        @keyframes up {
+            from {
+                opacity: 0;
+                transform: translateY(30px)
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            background: #fff;
+            color: #141414;
+            padding: 13px 28px;
+            border-radius: 99px;
+            font-weight: 800;
+            text-decoration: none;
+            transition: .25s
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, .25)
+        }
+
+        .dots {
+            position: absolute;
+            bottom: 18px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            z-index: 3
+        }
+
+        .dots button {
+            width: 10px;
+            height: 10px;
+            border-radius: 9px;
+            background: rgba(255, 255, 255, .5);
+            transition: .3s
+        }
+
+        .dots button.on {
+            width: 30px;
+            background: #fff
+        }
+
+        .arr {
+            position: absolute;
+            top: 50%;
+            z-index: 3;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .85);
+            color: #141414;
+            font-size: 20px
+        }
+
+        .arr.l {
+            left: 2vw
+        }
+
+        .arr.r {
+            right: 2vw
+        }
+
+        section {
+            padding: 56px 5vw
+        }
+
+        h2 {
+            font-size: clamp(24px, 3.4vw, 38px);
+            font-weight: 900;
+            margin-bottom: 22px;
+            letter-spacing: -.01em
+        }
+
+        .cats {
+            display: flex;
+            gap: 22px;
+            overflow-x: auto;
+            padding-bottom: 8px;
+            scrollbar-width: none
+        }
+
+        .cat {
+            flex: 0 0 auto;
+            text-align: center;
+            font-weight: 700;
+            font-size: 14px
+        }
+
+        .cat i {
+            display: grid;
+            place-items: center;
+            width: 92px;
+            height: 92px;
+            border-radius: 50%;
+            background: var(--card);
+            border: 2px solid var(--line);
+            font-size: 36px;
+            font-style: normal;
+            margin-bottom: 8px;
+            transition: .3s
+        }
+
+        .cat:hover i {
+            border-color: var(--ac);
+            transform: translateY(-6px) rotate(-6deg)
+        }
+
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 22px;
+            flex-wrap: wrap
+        }
+
+        .tabs button {
+            padding: 9px 20px;
+            border-radius: 99px;
+            border: 1.5px solid var(--line);
+            font-weight: 700;
+            transition: .25s
+        }
+
+        .tabs button.on {
+            background: var(--fg);
+            color: var(--bg);
+            border-color: var(--fg)
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+            gap: 20px
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 18px;
+            padding: 12px 12px 16px;
+            transition: .3s;
+            animation: up .5s both
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 36px rgba(255, 46, 126, .16)
+        }
+
+        .pic {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            background: radial-gradient(circle at 50% 60%, color-mix(in srgb, var(--c) 30%, transparent), transparent 70%), var(--bg);
+            overflow: hidden
+        }
+
+        .pic svg {
+            width: 46%;
+            transition: .4s
+        }
+
+        .card:hover .pic svg {
+            transform: scale(1.14) rotate(8deg)
+        }
+
+        .tag {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            background: var(--ac);
+            color: #fff;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 3px 9px;
+            border-radius: 99px
+        }
+
+        .card h3 {
+            font-size: 15px;
+            margin: 12px 4px 2px
+        }
+
+        .pr {
+            margin: 0 4px 10px;
+            font-weight: 800
+        }
+
+        .pr s {
+            color: var(--mut);
+            font-weight: 400;
+            font-size: 13px;
+            margin-left: 4px
+        }
+
+        .card button {
+            width: 100%;
+            padding: 11px;
+            border-radius: 10px;
+            background: var(--fg);
+            color: var(--bg);
+            font-weight: 700;
+            transition: .25s
+        }
+
+        .card button:hover {
+            background: var(--ac);
+            color: #fff
+        }
+
+        .spot {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+            background: linear-gradient(120deg, #1b0b14, #5b1a3d);
+            color: #fff;
+            border-radius: 28px;
+            margin: 0 5vw;
+            padding: 48px
+        }
+
+        .spot p {
+            opacity: .85;
+            margin-bottom: 14px
+        }
+
+        .blob {
+            aspect-ratio: 1;
+            max-width: 340px;
+            margin: auto;
+            width: 100%;
+            background: linear-gradient(135deg, #ff2e7e, #ffb36b);
+            animation: bl 8s ease-in-out infinite
+        }
+
+        @keyframes bl {
+
+            0%,
+            100% {
+                border-radius: 42% 58% 60% 40%/50% 40% 60% 50%
+            }
+
+            50% {
+                border-radius: 60% 40% 38% 62%/42% 60% 40% 58%;
+                transform: rotate(12deg)
+            }
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            text-align: center
+        }
+
+        .stats b {
+            display: block;
+            font-size: clamp(32px, 5vw, 52px);
+            color: var(--ac);
+            font-weight: 900
+        }
+
+        .rv {
+            display: flex;
+            gap: 16px;
+            width: max-content;
+            animation: mq 40s linear infinite
+        }
+
+        .rvw {
+            overflow: hidden
+        }
+
+        .rvw:hover .rv {
+            animation-play-state: paused
+        }
+
+        .rc {
+            width: 300px;
+            background: var(--card);
+            border: 1px solid var(--line);
+            border-radius: 16px;
+            padding: 18px;
+            white-space: normal;
+            font-size: 14px
+        }
+
+        .rc b {
+            display: block;
+            margin-top: 8px;
+            color: var(--ac)
+        }
+
+        .note {
+            max-width: 760px;
+            margin: auto;
+            text-align: center;
+            font-size: clamp(18px, 2.4vw, 24px);
+            font-weight: 600
+        }
+
+        .note small {
+            display: block;
+            margin-top: 14px;
+            color: var(--mut);
+            font-size: 14px
+        }
+
+        .nl {
+            display: flex;
+            gap: 10px;
+            max-width: 460px;
+            margin: 18px auto 0
+        }
+
+        .nl input {
+            flex: 1;
+            min-width: 0;
+            padding: 13px 18px;
+            border-radius: 99px;
+            border: 1.5px solid var(--line);
+            background: var(--card);
+            color: var(--fg);
+            font: inherit
+        }
+
+        .nl button {
+            background: var(--ac);
+            color: #fff;
+            padding: 0 24px;
+            border-radius: 99px;
+            font-weight: 800
+        }
+
+        footer {
+            background: #141414;
+            color: #cfc4c8;
+            padding: 40px 5vw;
+            font-size: 14px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: space-between
+        }
+
+        footer a {
+            display: block;
+            color: inherit;
+            text-decoration: none;
+            margin-top: 6px
+        }
+
+        footer a:hover {
+            color: #fff
+        }
+
+        #dr {
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: min(380px, 100%);
+            background: var(--card);
+            z-index: 80;
+            transform: translateX(105%);
+            transition: .4s;
+            padding: calc(env(safe-area-inset-top, 0px) + 20px) 20px 20px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: -10px 0 40px rgba(0, 0, 0, .25)
+        }
+
+        #dr.on {
+            transform: none
+        }
+
+        #dr ul {
+            list-style: none;
+            padding: 0;
+            flex: 1;
+            overflow: auto
+        }
+
+        #dr li {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .rev {
+            opacity: 0;
+            transform: translateY(34px);
+            transition: .8s
+        }
+
+        .rev.in {
+            opacity: 1;
+            transform: none
+        }
+
+        @media(max-width:820px) {
+            .hm {
+                display: block
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: var(--bg);
+                padding: 16px 5vw;
+                gap: 14px;
+                border-bottom: 1px solid var(--line)
+            }
+
+            nav.on {
+                display: flex
+            }
+
+            .spot {
+                grid-template-columns: 1fr;
+                padding: 28px;
+                margin: 0 4vw
+            }
+
+            .arr {
+                display: none
+            }
+
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px
+            }
+
+            .sl::before {
+                width: 200px;
+                height: 200px
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            * {
+                animation: none !important;
+                transition: none !important
+            }
+        }
+
+        :root {
+            --ac: #b4476b;
+            --gd: #c9a96a
+        }
+
+        body {
+            font-family: Jost, system-ui, -apple-system, "Segoe UI", sans-serif
+        }
+
+        h1,
+        h2,
+        h3,
+        .logo,
+        .note,
+        .stats b {
+            font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif
+        }
+
+        h2 {
+            font-weight: 600;
+            font-size: clamp(32px, 4.2vw, 50px);
+            letter-spacing: 0
+        }
+
+        .bar {
+            background: #1a0f14;
+            color: var(--gd);
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            font-size: 11px
+        }
+
+        .logo {
+            font-weight: 600;
+            font-size: 30px;
+            letter-spacing: .3em;
+            line-height: 1
+        }
+
+        .logo small {
+            display: block;
+            font-family: Jost, sans-serif;
+            font-size: 9px;
+            letter-spacing: .65em;
+            color: var(--gd);
+            margin-top: 4px;
+            text-align: center
+        }
+
+        nav {
+            font-weight: 500;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            font-size: 12px
+        }
+
+        nav a::after {
+            background: var(--gd)
+        }
+
+        .cb {
+            border-radius: 2px;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 500
+        }
+
+        .hero {
+            height: min(88vh, 720px);
+            background: linear-gradient(120deg, #2a0b1c, #b4476b)
+        }
+
+        .hv {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, rgba(20, 6, 14, .8), rgba(20, 6, 14, .1) 75%);
+            z-index: 1
+        }
+
+        .sl {
+            z-index: 2
+        }
+
+        .sl::before,
+        .sl::after {
+            background: rgba(201, 169, 106, .1)
+        }
+
+        .sl h1 {
+            font-weight: 500;
+            font-style: italic;
+            font-size: clamp(40px, 6.4vw, 84px);
+            line-height: 1
+        }
+
+        .sl small {
+            color: var(--gd);
+            letter-spacing: .4em
+        }
+
+        .sl p {
+            font-weight: 300;
+            font-size: 18px
+        }
+
+        .btn {
+            border-radius: 2px;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 500
+        }
+
+        .pp {
+            position: absolute;
+            right: 2vw;
+            bottom: 14px;
+            z-index: 4;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .2);
+            color: #fff;
+            font-size: 11px;
+            backdrop-filter: blur(6px)
+        }
+
+        .card {
+            border-radius: 4px
+        }
+
+        .pic {
+            border-radius: 2px
+        }
+
+        .card h3 {
+            font-size: 20px;
+            font-weight: 600
+        }
+
+        .card button,
+        .tabs button {
+            border-radius: 2px;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            font-size: 12px;
+            font-weight: 500
+        }
+
+        .gal {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px
+        }
+
+        .gt {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            display: grid;
+            place-items: center;
+            border-radius: 4px;
+            text-decoration: none
+        }
+
+        .gt svg {
+            width: 68%;
+            filter: drop-shadow(0 16px 20px rgba(0, 0, 0, .35));
+            transition: transform .9s
+        }
+
+        .gt:hover svg {
+            transform: scale(1.13) rotate(-3deg)
+        }
+
+        .gt span {
+            position: absolute;
+            left: 18px;
+            bottom: 14px;
+            color: #fff;
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-size: 30px;
+            font-style: italic
+        }
+
+        .spot {
+            background: linear-gradient(120deg, #1a0f14, #4a1530);
+            border-radius: 4px
+        }
+
+        .blob {
+            background: linear-gradient(135deg, #b4476b, #c9a96a);
+            display: grid;
+            place-items: center
+        }
+
+        .blob svg {
+            width: 40%;
+            filter: drop-shadow(0 18px 22px rgba(0, 0, 0, .45))
+        }
+
+        .stats b {
+            font-weight: 600
+        }
+
+        .note {
+            font-style: italic;
+            font-weight: 500
+        }
+
+        @media(max-width:820px) {
+            .gal {
+                grid-template-columns: repeat(2, 1fr)
+            }
+
+            .hero {
+                height: 80vh
+            }
+
+            .logo {
+                font-size: 24px
+            }
+        }
+
+        /* Premium beauty photography refresh */
+        :root {
+            --bg: #fffaf7;
+            --fg: #24151b;
+            --mut: #806c73;
+            --card: #fffdfb;
+            --line: #eadbdc;
+            --ac: #a83d61;
+            --gd: #d5b77b;
+            --hd: rgba(255, 250, 247, .94)
+        }
+
+        body {
+            background: var(--bg)
+        }
+
+        header {
+            padding: 16px 5vw
+        }
+
+        .logo {
+            letter-spacing: .24em
+        }
+
+        .hero {
+            background: #321321
+        }
+
+        .hero::before {
+            background: linear-gradient(90deg, rgba(27, 8, 17, .78) 0%, rgba(27, 8, 17, .34) 52%, rgba(27, 8, 17, .05) 100%)
+        }
+
+        .sl h1 {
+            max-width: 700px;
+            text-shadow: 0 3px 25px rgba(0, 0, 0, .18)
+        }
+
+        .btn {
+            background: var(--gd);
+            color: #24151b;
+            transition: transform .3s, background .3s
+        }
+
+        .btn:hover {
+            background: #f0d9a5
+        }
+
+        section {
+            padding-top: 68px;
+            padding-bottom: 68px
+        }
+
+        .cat {
+            text-decoration: none;
+            color: var(--fg);
+            letter-spacing: .06em;
+            text-transform: uppercase;
+            font-size: 11px
+        }
+
+        .cat i {
+            width: 112px;
+            height: 112px;
+            border: 0;
+            border-radius: 50%;
+            font-size: 0;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 10px 28px rgba(68, 28, 43, .10);
+            position: relative
+        }
+
+        .cat i:after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 1px solid rgba(213, 183, 123, .75)
+        }
+
+        .cat:nth-child(1) i {
+            background-image: url('https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=360&q=85')
+        }
+
+        .cat:nth-child(2) i {
+            background-image: url('https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=360&q=85')
+        }
+
+        .cat:nth-child(3) i {
+            background-image: url('https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=360&q=85')
+        }
+
+        .cat:nth-child(4) i {
+            background-image: url('https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=360&q=85')
+        }
+
+        .cat:nth-child(5) i {
+            background-image: url('https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=360&q=85')
+        }
+
+        .cat:nth-child(6) i {
+            background-image: url('https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=360&q=85')
+        }
+
+        .cat:nth-child(7) i {
+            background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=360&q=85')
+        }
+
+        .gal {
+            gap: 16px
+        }
+
+        .gt {
+            background-size: cover !important;
+            background-position: center !important;
+            isolation: isolate
+        }
+
+        .gt:before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(30, 10, 19, .02) 25%, rgba(30, 10, 19, .72));
+            z-index: -1;
+            transition: opacity .4s
+        }
+
+        .gt svg {
+            display: none
+        }
+
+        .gt span {
+            left: 22px;
+            bottom: 22px;
+            font-size: clamp(27px, 3vw, 40px);
+            text-shadow: 0 2px 12px rgba(0, 0, 0, .3)
+        }
+
+        .gt:hover {
+            background-size: 110% !important
+        }
+
+        .gt:nth-child(1) {
+            background-image: url('https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=800&q=90') !important
+        }
+
+        .gt:nth-child(2) {
+            background-image: url('https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=800&q=90') !important
+        }
+
+        .gt:nth-child(3) {
+            background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=800&q=90') !important
+        }
+
+        .gt:nth-child(4) {
+            background-image: url('https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=800&q=90') !important
+        }
+
+        .card {
+            padding: 10px 10px 16px;
+            border-color: #eadcde;
+            box-shadow: 0 4px 20px rgba(54, 21, 35, .025)
+        }
+
+        .card:hover {
+            box-shadow: 0 18px 38px rgba(76, 25, 47, .13)
+        }
+
+        .pic {
+            background-size: cover;
+            background-position: center;
+            border-radius: 2px;
+            aspect-ratio: 4/4.6
+        }
+
+        .pic svg {
+            display: none
+        }
+
+        .pic:after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(255, 255, 255, .04), rgba(50, 15, 30, .08));
+            pointer-events: none
+        }
+
+        .card:nth-child(6n+1) .pic {
+            background-image: url('https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=700&q=85')
+        }
+
+        .card:nth-child(6n+2) .pic {
+            background-image: url('https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?auto=format&fit=crop&w=700&q=85')
+        }
+
+        .card:nth-child(6n+3) .pic {
+            background-image: url('https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=85')
+        }
+
+        .card:nth-child(6n+4) .pic {
+            background-image: url('https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=700&q=85')
+        }
+
+        .card:nth-child(6n+5) .pic {
+            background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=700&q=85')
+        }
+
+        .card:nth-child(6n) .pic {
+            background-image: url('https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?auto=format&fit=crop&w=700&q=85')
+        }
+
+        .tag {
+            background: #321521;
+            color: #e5ca91;
+            border-radius: 0;
+            letter-spacing: .1em
+        }
+
+        .card h3 {
+            font-size: 21px;
+            line-height: 1.2;
+            margin-top: 15px
+        }
+
+        .card button {
+            background: #321521;
+            color: #fff;
+            border: 1px solid #321521
+        }
+
+        .card button:hover {
+            background: var(--gd);
+            color: #24151b
+        }
+
+        .spot {
+            box-shadow: 0 22px 50px rgba(40, 10, 25, .12)
+        }
+
+        .blob {
+            background-image: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=90');
+            background-size: cover;
+            background-position: center;
+            animation: none;
+            border-radius: 50% 50% 3px 3px;
+            min-height: 300px
+        }
+
+        .blob svg {
+            display: none
+        }
+
+        .stats {
+            padding: 10px 0
+        }
+
+        .stats b {
+            color: #a83d61
+        }
+
+        .note {
+            max-width: 850px
+        }
+
+        footer {
+            background: #1b1015
+        }
+
+        @media(max-width:820px) {
+            .cat i {
+                width: 88px;
+                height: 88px
+            }
+
+            .spot {
+                margin: 0 4vw
+            }
+
+            .hero {
+                height: 76vh
+            }
+
+            .sl {
+                padding: 0 8vw
+            }
+
+            .sl p {
+                font-size: 16px
+            }
+
+            .card h3 {
+                font-size: 17px
+            }
+        }
+
+
+        /* Anaira product photography + editorial motion upgrade */
+        :root {
+            --ac: #9b3158;
+            --gd: #d7b779
+        }
+
+        #shop {
+            position: relative
+        }
+
+        #shop>h2 {
+            margin-bottom: 28px
+        }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(155, 49, 88, .12);
+            border-radius: 3px;
+            background: linear-gradient(150deg, #fff 0%, #fffaf8 100%);
+            box-shadow: 0 9px 28px rgba(47, 17, 31, .055);
+            animation: cardEnter .75s cubic-bezier(.2, .75, .25, 1) both;
+            animation-delay: var(--card-delay, 0ms);
+            transform-style: preserve-3d;
+            will-change: transform, box-shadow
+        }
+
+        @keyframes cardEnter {
+            from {
+                opacity: 0;
+                transform: translateY(28px) scale(.975)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1)
+            }
+        }
+
+        .card:hover {
+            transform: translateY(-10px) rotateX(1deg);
+            box-shadow: 0 24px 50px rgba(70, 20, 43, .16);
+            border-color: rgba(215, 183, 121, .75)
+        }
+
+        .pic {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+            aspect-ratio: 4/4.7;
+            background: radial-gradient(ellipse at 50% 40%, #f5e6e8 0%, #f9f0eb 48%, #eee0e0 100%);
+            display: block
+        }
+
+        .card:nth-child(3n+2) .pic {
+            background: radial-gradient(ellipse at 50% 40%, #f2e2d6, #f8eee8 56%, #e9d7d9)
+        }
+
+        .card:nth-child(3n) .pic {
+            background: radial-gradient(ellipse at 50% 40%, #eadfe8, #faf1ed 58%, #e6d4d8)
+        }
+
+        .product-photo {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform .9s cubic-bezier(.2, .7, .2, 1), filter .7s;
+            animation: photoArrive .9s both;
+            filter: saturate(.92) contrast(1.02)
+        }
+
+        @keyframes photoArrive {
+            from {
+                opacity: 0;
+                transform: scale(1.08)
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1)
+            }
+        }
+
+        .card:hover .product-photo {
+            transform: scale(1.09);
+            filter: saturate(1.08) contrast(1.04)
+        }
+
+        .pic:after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(180deg, rgba(255, 255, 255, .08), transparent 35%, rgba(39, 10, 25, .12));
+            pointer-events: none
+        }
+
+        .tag {
+            z-index: 3;
+            top: 12px;
+            left: 12px;
+            padding: 6px 10px;
+            background: #29141e;
+            color: #e8cf9b;
+            font-size: 10px;
+            letter-spacing: .13em;
+            box-shadow: 0 5px 16px rgba(0, 0, 0, .1);
+            animation: tagPop .6s .2s both
+        }
+
+        @keyframes tagPop {
+            from {
+                opacity: 0;
+                transform: translateX(-8px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0)
+            }
+        }
+
+        .quick-view {
+            position: absolute;
+            z-index: 3;
+            left: 50%;
+            bottom: 16px;
+            transform: translate(-50%, 12px);
+            opacity: 0;
+            white-space: nowrap;
+            background: rgba(255, 250, 247, .94);
+            color: #321521;
+            padding: 9px 14px;
+            font-size: 9px;
+            letter-spacing: .18em;
+            transition: opacity .3s, transform .3s;
+            backdrop-filter: blur(8px)
+        }
+
+        .card:hover .quick-view {
+            opacity: 1;
+            transform: translate(-50%, 0)
+        }
+
+        .image-glint {
+            position: absolute;
+            z-index: 2;
+            top: -30%;
+            left: -70%;
+            width: 42%;
+            height: 170%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .42), transparent);
+            transform: rotate(18deg);
+            pointer-events: none
+        }
+
+        .card:hover .image-glint {
+            animation: glint .9s ease
+        }
+
+        @keyframes glint {
+            to {
+                left: 140%
+            }
+        }
+
+        .card h3 {
+            padding: 0 3px;
+            margin-top: 17px;
+            min-height: 2.3em;
+            color: #321521;
+            letter-spacing: .01em
+        }
+
+        .pr {
+            padding: 0 3px;
+            color: #321521;
+            font-size: 16px
+        }
+
+        .pr s {
+            color: #a48c92;
+            margin-left: 8px
+        }
+
+        .card button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 14px;
+            padding: 13px 10px;
+            background: #321521;
+            color: #fff;
+            border: 1px solid #321521;
+            transition: background .25s, color .25s, letter-spacing .25s, transform .25s
+        }
+
+        .card button span {
+            font-size: 18px;
+            line-height: 10px;
+            transition: transform .25s
+        }
+
+        .card button:hover {
+            background: #d7b779;
+            color: #24151b;
+            border-color: #d7b779;
+            transform: translateY(-2px);
+            letter-spacing: .17em
+        }
+
+        .card button:hover span {
+            transform: rotate(90deg)
+        }
+
+        .card button:active {
+            transform: scale(.98)
+        }
+
+        .tabs button {
+            transition: all .3s
+        }
+
+        .tabs button:hover {
+            border-color: var(--gd);
+            transform: translateY(-2px)
+        }
+
+        .cats .cat {
+            transition: transform .35s
+        }
+
+        .cats .cat:hover {
+            transform: translateY(-5px)
+        }
+
+        .cat i {
+            transition: transform .5s, box-shadow .5s
+        }
+
+        .cat:hover i {
+            transform: scale(1.06);
+            box-shadow: 0 16px 30px rgba(68, 28, 43, .18)
+        }
+
+        @media(max-width:820px) {
+            .card:hover {
+                transform: translateY(-3px)
+            }
+
+            .quick-view {
+                display: none
+            }
+
+            .product-photo {
+                object-position: center
+            }
+
+            .card button {
+                letter-spacing: .07em
+            }
+
+            .card h3 {
+                min-height: 2.4em
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+
+            .card,
+            .product-photo,
+            .tag {
+                animation: none !important
+            }
+
+            .card:hover,
+            .card button:hover {
+                transform: none
+            }
+        }
+
+
+        /* Enhanced editorial captions and CTA for each beauty hero slide */
+        .hero .sl {
+            background-size: cover !important;
+            background-position: center !important;
+            isolation: isolate
+        }
+
+        .hero .sl::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 0;
+            background: linear-gradient(90deg, rgba(255, 248, 249, .97) 0%, rgba(255, 248, 249, .88) 35%, rgba(255, 248, 249, .34) 60%, rgba(255, 248, 249, 0) 100%);
+            animation: none;
+            z-index: 0
+        }
+
+        .hero .sl::after {
+            border: 1px solid rgba(164, 73, 105, .15);
+            background: rgba(255, 255, 255, .08);
+            backdrop-filter: blur(1px)
+        }
+
+        .hero .sl>div {
+            max-width: 590px;
+            padding: clamp(20px, 3vw, 38px);
+            border-left: 3px solid #b04c70;
+            animation: captionRise .75s cubic-bezier(.2, .7, .2, 1) both
+        }
+
+        .hero .sl small {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: #9b3158 !important;
+            font: 700 11px/1.4 Arial, sans-serif !important;
+            letter-spacing: .28em !important;
+            text-transform: uppercase;
+            background: rgba(255, 255, 255, .78);
+            padding: 10px 13px;
+            border-radius: 3px;
+            box-shadow: 0 8px 24px rgba(88, 35, 54, .07)
+        }
+
+        .hero .sl h1 {
+            color: #351824 !important;
+            font-family: Georgia, 'Times New Roman', serif !important;
+            font-size: clamp(38px, 5.4vw, 76px) !important;
+            line-height: .99 !important;
+            letter-spacing: -.045em;
+            font-weight: 500 !important;
+            margin: 22px 0 16px !important;
+            text-shadow: none !important;
+            max-width: 10ch
+        }
+
+        .hero .sl p {
+            color: #5d3c48 !important;
+            font-size: clamp(14px, 1.25vw, 17px) !important;
+            line-height: 1.8 !important;
+            max-width: 43ch;
+            margin: 0 0 25px !important;
+            font-weight: 400 !important
+        }
+
+        .hero .sl .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            background: #a8325c !important;
+            color: #fff !important;
+            border: 1px solid #a8325c !important;
+            border-radius: 999px !important;
+            padding: 15px 25px !important;
+            font: 700 11px/1 Arial, sans-serif !important;
+            letter-spacing: .17em !important;
+            text-transform: uppercase;
+            box-shadow: 0 10px 24px rgba(168, 50, 92, .24);
+            transition: transform .25s, box-shadow .25s, background .25s
+        }
+
+        .hero .sl .btn::after {
+            content: '↗';
+            font-size: 17px;
+            line-height: 10px;
+            transition: transform .25s
+        }
+
+        .hero .sl .btn:hover {
+            background: #351824 !important;
+            border-color: #351824 !important;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(53, 24, 36, .25)
+        }
+
+        .hero .sl .btn:hover::after {
+            transform: translate(3px, -2px)
+        }
+
+        .hero .dots {
+            z-index: 5
+        }
+
+        .hero .dots button {
+            width: 25px;
+            height: 4px;
+            border-radius: 10px;
+            background: rgba(95, 44, 62, .28);
+            transition: width .3s, background .3s
+        }
+
+        .hero .dots button.on {
+            width: 42px;
+            background: #a8325c
+        }
+
+        .hero .arr {
+            z-index: 5;
+            background: rgba(255, 255, 255, .82) !important;
+            color: #57263a !important;
+            border: 1px solid rgba(87, 38, 58, .16);
+            backdrop-filter: blur(8px);
+            box-shadow: 0 6px 20px rgba(40, 10, 22, .12)
+        }
+
+        .hero .pp {
+            z-index: 5;
+            background: rgba(53, 24, 36, .72) !important
+        }
+
+        @keyframes captionRise {
+            from {
+                opacity: 0;
+                transform: translateY(18px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @media(max-width:700px) {
+            .hero {
+                height: 610px !important
+            }
+
+            .hero .sl {
+                align-items: flex-end !important;
+                padding: 0 14px 65px !important
+            }
+
+            .hero .sl::before {
+                background: linear-gradient(0deg, rgba(255, 248, 249, .99) 0%, rgba(255, 248, 249, .92) 48%, rgba(255, 248, 249, .10) 100%) !important
+            }
+
+            .hero .sl>div {
+                padding: 17px 16px 18px;
+                border-left-width: 2px;
+                max-width: 100%
+            }
+
+            .hero .sl h1 {
+                font-size: clamp(36px, 10vw, 52px) !important;
+                max-width: 12ch;
+                margin: 14px 0 10px !important
+            }
+
+            .hero .sl p {
+                font-size: 14px !important;
+                line-height: 1.55 !important;
+                margin-bottom: 17px !important
+            }
+
+            .hero .sl small {
+                font-size: 9px !important;
+                letter-spacing: .18em !important
+            }
+
+            .hero .sl .btn {
+                padding: 14px 20px !important
+            }
+
+            .hero .arr {
+                top: 48%;
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            .hero .sl>div {
+                animation: none !important
+            }
+
+            .hero .sl .btn {
+                transition: none
+            }
+        }
+
+
+        /* Reliable Anaira hero: no third-party video overlay; independent image slides */
+        .hero {
+            position: relative !important;
+            isolation: isolate !important;
+            min-height: clamp(440px, 44vw, 650px) !important;
+            height: clamp(440px, 44vw, 650px) !important;
+            overflow: hidden !important;
+            background: #f4dce3 !important
+        }
+
+        .hero .hv,
+        .hero-shop-hotspot {
+            display: none !important
+        }
+
+        .hero .sl {
+            position: absolute !important;
+            inset: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            padding: clamp(28px, 7vw, 110px) !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            z-index: 1 !important;
+            transition: opacity .7s ease, visibility .7s ease !important;
+            background-size: cover !important;
+            background-position: center !important
+        }
+
+        .hero .sl:nth-of-type(1) {
+            background-image: linear-gradient(90deg, rgba(255, 247, 248, .96) 0%, rgba(255, 247, 248, .82) 38%, rgba(255, 247, 248, .08) 75%), url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=2000&q=85') !important
+        }
+
+        .hero .sl:nth-of-type(2) {
+            background-image: linear-gradient(90deg, rgba(255, 244, 247, .96) 0%, rgba(255, 244, 247, .78) 38%, rgba(255, 244, 247, .05) 78%), url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=2000&q=85') !important
+        }
+
+        .hero .sl:nth-of-type(3) {
+            background-image: linear-gradient(90deg, rgba(255, 247, 248, .96) 0%, rgba(255, 247, 248, .8) 38%, rgba(255, 247, 248, .06) 78%), url('https://images.unsplash.com/photo-1583241800698-e8ab01830a6e?auto=format&fit=crop&w=2000&q=85') !important
+        }
+
+        .hero .sl.on {
+            opacity: 1 !important;
+            visibility: visible !important;
+            pointer-events: auto !important;
+            z-index: 2 !important
+        }
+
+        .hero .sl>div {
+            max-width: 560px !important;
+            color: #321c29 !important;
+            animation: anairaCaption .65s ease both !important
+        }
+
+        .hero .sl small {
+            display: inline-block !important;
+            color: #a83d63 !important;
+            font-weight: 700 !important;
+            letter-spacing: .22em !important;
+            font-size: 12px !important;
+            text-transform: uppercase !important
+        }
+
+        .hero .sl h1 {
+            font-family: 'Cormorant Garamond', Georgia, serif !important;
+            font-size: clamp(42px, 5.6vw, 78px) !important;
+            line-height: .98 !important;
+            letter-spacing: -.025em !important;
+            color: #321c29 !important;
+            margin: 20px 0 15px !important;
+            max-width: 9ch !important
+        }
+
+        .hero .sl p {
+            font-size: clamp(15px, 1.2vw, 18px) !important;
+            line-height: 1.7 !important;
+            color: #654b56 !important;
+            max-width: 42ch !important;
+            margin: 0 0 27px !important
+        }
+
+        .hero .sl .btn {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            min-width: 150px !important;
+            border-radius: 999px !important;
+            background: #321c29 !important;
+            color: white !important;
+            padding: 16px 28px !important;
+            text-transform: uppercase !important;
+            letter-spacing: .12em !important;
+            font-weight: 700 !important;
+            text-decoration: none !important;
+            box-shadow: 0 8px 25px #321c2928 !important;
+            transition: transform .25s, background .25s !important
+        }
+
+        .hero .sl .btn:hover {
+            transform: translateY(-3px) !important;
+            background: #a83d63 !important
+        }
+
+        .hero .arr {
+            z-index: 5 !important;
+            top: 50% !important;
+            cursor: pointer !important
+        }
+
+        .hero .dots {
+            z-index: 5 !important;
+            position: absolute !important;
+            left: clamp(28px, 7vw, 110px) !important;
+            bottom: 25px !important;
+            display: flex !important;
+            gap: 9px !important
+        }
+
+        .hero .dots button {
+            width: 9px !important;
+            height: 9px !important;
+            border-radius: 50% !important;
+            border: 1px solid #6f4356 !important;
+            background: #fff9 !important;
+            cursor: pointer !important;
+            padding: 0 !important
+        }
+
+        .hero .dots button.on {
+            width: 28px !important;
+            border-radius: 8px !important;
+            background: #6f4356 !important
+        }
+
+        .hero .pp {
+            z-index: 5 !important;
+            right: 24px !important;
+            bottom: 18px !important;
+            cursor: pointer !important
+        }
+
+        @keyframes anairaCaption {
+            from {
+                opacity: 0;
+                transform: translateY(18px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @media(max-width:700px) {
+            .hero {
+                height: 560px !important;
+                min-height: 560px !important
+            }
+
+            .hero .sl {
+                padding: 32px 25px 76px !important;
+                align-items: flex-end !important;
+                background-position: 58% center !important
+            }
+
+            .hero .sl:nth-of-type(1) {
+                background-image: linear-gradient(0deg, rgba(255, 247, 248, .98) 0%, rgba(255, 247, 248, .88) 42%, rgba(255, 247, 248, .08) 100%), url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1000&q=80') !important
+            }
+
+            .hero .sl:nth-of-type(2) {
+                background-image: linear-gradient(0deg, rgba(255, 244, 247, .98) 0%, rgba(255, 244, 247, .86) 42%, rgba(255, 244, 247, .08) 100%), url('https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=1000&q=80') !important
+            }
+
+            .hero .sl:nth-of-type(3) {
+                background-image: linear-gradient(0deg, rgba(255, 247, 248, .98) 0%, rgba(255, 247, 248, .86) 42%, rgba(255, 247, 248, .08) 100%), url('https://images.unsplash.com/photo-1583241800698-e8ab01830a6e?auto=format&fit=crop&w=1000&q=80') !important
+            }
+
+            .hero .sl>div {
+                max-width: 100% !important
+            }
+
+            .hero .sl h1 {
+                font-size: clamp(42px, 11vw, 58px) !important
+            }
+
+            .hero .arr {
+                top: 42% !important
+            }
+
+            .hero .dots {
+                left: 25px !important;
+                bottom: 22px !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bar">
+        <div><span>FREE gift on orders above ₹549</span><span>Flat ₹700 OFF above ₹2,999</span><span>Use code APP15 for
+                15% OFF</span><span>Free shipping on prepaid orders</span><span>FREE gift on orders above
+                ₹549</span><span>Flat ₹700 OFF above ₹2,999</span><span>Use code APP15 for 15% OFF</span><span>Free
+                shipping on prepaid orders</span></div>
+    </div>
+    <header class="ana-header">
+        <button class="hm" id="hm" aria-label="Open menu" title="Menu">☰</button>
+        <a class="logo" href="#hero" aria-label="Anaira Beauty home"><span
+                class="logo-main">ANAIRA</span><small>BEAUTY</small></a>
+        <nav id="nv" aria-label="Main navigation"><a href="#cats">Lips</a><a href="#cats">Eyes</a><a
+                href="#cats">Face</a><a href="#cats">Nails</a><a href="#cats">Skin</a><a href="#shop">Gifting</a></nav>
+        <div class="ic header-actions"><button class="head-icon" id="searchBtn" aria-label="Search"
+                title="Search">⌕</button><button class="head-icon" id="wishBtn" aria-label="Favourites"
+                title="Favourites">♡</button><button class="head-icon account-icon" id="accountBtn" aria-label="Account"
+                title="Account">♙</button><button class="cb" id="cb" aria-label="Open cart">🛍 Cart <span
+                    id="cartCount">0</span></button></div>
+    </header>
+
+    <div class="hero" id="hero">
+        <div class="sl on">
+            <div><small>THE NEW COLLECTION</small>
+                <h1>The art of effortless radiance.</h1>
+                <p>Luxurious formulas, crafted for Indian skin and everyday glamour.</p><a class="btn" href="#shop">Shop
+                    now</a>
+            </div>
+        </div>
+        <div class="sl">
+            <div><small>THE FESTIVE EDIT</small>
+                <h1>Gifts that glow as beautifully as they look.</h1>
+                <p>Signature kits, beautifully boxed and up to 57% off.</p><a class="btn" href="#shop">Explore kits</a>
+            </div>
+        </div>
+        <div class="sl">
+            <div><small>ESSENTIALS UNDER ₹249</small>
+                <h1>Everyday luxury, within reach.</h1>
+                <p>Kajal, lip stains, compacts and more.</p><a class="btn" href="#shop">Grab the deals</a>
+            </div>
+        </div>
+        <button class="arr l" id="pv" aria-label="Previous">‹</button><button class="arr r" id="nx"
+            aria-label="Next">›</button>
+        <div class="dots" id="dots"></div><button class="pp" id="pp" aria-label="Pause video">❚❚</button>
+    </div>
+
+    <section id="cats" class="rev">
+        <h2>Shop by category</h2>
+        <div class="cats"><a class="cat" href="#shop"><i>💄</i>Lips</a><a class="cat" href="#shop"><i>👁️</i>Eyes</a><a
+                class="cat" href="#shop"><i>✨</i>Face</a><a class="cat" href="#shop"><i>💅</i>Nails</a><a class="cat"
+                href="#shop"><i>🧴</i>Skin</a><a class="cat" href="#shop"><i>🎁</i>Kits</a><a class="cat"
+                href="#shop"><i>🏷️</i>Under ₹249</a></div>
+    </section>
+
+    <section class="rev">
+        <h2>The Anaira edit</h2>
+        <div class="gal" id="gal"></div>
+    </section>
+
+    <section id="shop" class="rev">
+        <h2>Our favourites</h2>
+        <div class="tabs" id="tabs"><button class="on" data-t="new">New launches</button><button
+                data-t="best">Bestsellers</button><button data-t="combo">Combos</button></div>
+        <div class="grid" id="grid"></div>
+    </section>
+
+    <div class="spot rev">
+        <div><small style="letter-spacing:.35em;color:var(--gd)">SIGNATURE PRODUCT</small>
+            <h2 style="margin-top:8px">The Velvet Serum Lipstick</h2>
+            <p>Soft powder pigments hug your lips for a cloud-matte finish, infused with peptides, hyaluronic acid and
+                squalane. It feels like skincare and looks camera-ready.</p><a class="btn" href="#shop">Discover
+                shades</a>
+        </div>
+        <div class="blob"></div>
+    </div>
+
+    <section class="rev">
+        <div class="stats">
+            <div><b data-n="12">0</b>Years of colour</div>
+            <div><b data-n="250">0</b>Stores across India</div>
+            <div><b data-n="4">0</b>Million happy faces</div>
+            <div><b data-n="500">0</b>Shades &amp; counting</div>
+        </div>
+    </section>
+
+    <section class="rev">
+        <h2>Loved by you</h2>
+        <div class="rvw">
+            <div class="rv" id="rv"></div>
+        </div>
+    </section>
+
+    <section class="rev">
+        <div class="note">“Beauty, to us, is quiet confidence. Anaira is crafted to celebrate every skin tone with
+            luxury you can feel.”<small>— The Anaira promise</small>
+            <div class="nl"><input id="em" placeholder="Enter your email" aria-label="Email"><button
+                    id="sb">Join</button></div>
+        </div>
+    </section>
+
+    <footer>
+        <div>
+            <div class="logo" style="color:#fff">ANAIRA<small>BEAUTY</small></div>
+            <p style="margin-top:8px">hello@anaira.example</p>
+        </div>
+        <div><b>Help</b><a href="#">Returns</a><a href="#">FAQs</a><a href="#">Contact us</a></div>
+        <div><b>Company</b><a href="#">About us</a><a href="#">Store locator</a><a href="#">Bulk orders</a></div>
+        <div style="width:100%;opacity:.6;font-size:12px">© 2026 Anaira Beauty. All rights reserved.</div>
+    </footer>
+
+    <aside id="dr">
+        <h2>Your cart</h2>
+        <ul id="ci"></ul>
+        <p id="tt" style="font-weight:800;margin:14px 0"></p><button class="btn"
+            style="background:var(--ac);color:#fff;margin:0" id="cl">Close</button>
+    </aside>
+
+    <script>
+        const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+        const sv = (c, n = '') => {
+            const k = /kit|trio/i.test(n) ? 5 : /gloss/i.test(n) ? 1 : /foundation|cream|moistur|primer/i.test(n) ? 2 : /palette|powder|compact/i.test(n) ? 3 : /kajal/i.test(n) ? 4 : 0;
+            return [`<svg viewBox="0 0 60 100"><rect x="20" y="52" width="20" height="42" rx="3" fill="#1d1d1f"/><rect x="20" y="46" width="20" height="8" fill="#c9a96a"/><rect x="22" y="40" width="16" height="8" fill="#d8d0c8"/><path d="M23 40V20q7-13 14 0v20z" fill="${c}"/><path d="M26 38V22q2-5 4-6" stroke="#fff" stroke-opacity=".45" stroke-width="2.5" fill="none"/><rect x="22" y="56" width="3" height="34" fill="#fff" fill-opacity=".12"/></svg>`,
+            `<svg viewBox="0 0 60 100"><rect x="23" y="30" width="14" height="62" rx="6" fill="${c}"/><rect x="26" y="34" width="3" height="52" rx="2" fill="#fff" fill-opacity=".35"/><rect x="21" y="12" width="18" height="22" rx="3" fill="#c9a96a"/><rect x="21" y="12" width="18" height="4" fill="#fff" fill-opacity=".4"/></svg>`,
+            `<svg viewBox="0 0 60 100"><rect x="26" y="6" width="8" height="10" fill="#c9a96a"/><rect x="22" y="14" width="16" height="9" rx="2" fill="#1d1d1f"/><rect x="14" y="22" width="32" height="70" rx="9" fill="${c}"/><rect x="18" y="28" width="5" height="58" rx="3" fill="#fff" fill-opacity=".4"/><rect x="21" y="50" width="22" height="16" rx="2" fill="#fff" fill-opacity=".85"/></svg>`,
+            `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="42" fill="#1d1d1f"/><circle cx="50" cy="50" r="33" fill="${c}"/><path d="M26 38a30 30 0 0 1 30-14" stroke="#fff" stroke-opacity=".5" stroke-width="5" fill="none" stroke-linecap="round"/><circle cx="50" cy="50" r="42" fill="none" stroke="#c9a96a" stroke-width="2"/></svg>`,
+                `<svg viewBox="0 0 60 100"><rect x="24" y="30" width="12" height="62" rx="2" fill="#1d1d1f"/><path d="M24 30L30 8l6 22z" fill="#d9b48a"/><path d="M28 16L30 8l2 8z" fill="#1d1d1f"/><rect x="24" y="44" width="12" height="4" fill="#c9a96a"/></svg>`,
+            `<svg viewBox="0 0 100 100"><rect x="14" y="42" width="72" height="46" rx="3" fill="${c}"/><rect x="10" y="32" width="80" height="16" rx="3" fill="#1d1d1f"/><rect x="45" y="32" width="10" height="56" fill="#c9a96a"/><path d="M50 32c-14-20-28 0-8 0zM50 32c14-20 28 0 8 0z" fill="none" stroke="#c9a96a" stroke-width="4"/></svg>`][k]
+        };
+        const D = {
+            new: [["Glide Peptide Lipstick", 549, 412, "#c93a5a", "NEW"], ["Plumping Gloss Stick", 699, 594, "#ff6f91", "NEW"], ["Illuminating Strobe Cream", 499, 449, "#f7b27a", "NEW"], ["Transferproof Lip Gloss", 699, 454, "#e0507a", "35% OFF"], ["HD Perfecting Foundation", 1399, 1259, "#d9a37c", "NEW"], ["Kojic Acid Moisturizer", 449, 399, "#f4c1a0", "NEW"]],
+            best: [["Matte Crayon Lipstick", 949, 617, "#b3243f", "35% OFF"], ["Dewy Foundation Stick", 1199, 1079, "#c98f68", "TOP"], ["Intense Kajal", 249, 249, "#2b2b2b", "TOP"], ["Contour Face Palette", 799, 519, "#b9805e", "35% OFF"], ["Tinted Face Powder", 799, 719, "#d6a98a", "TOP"], ["Pore Minimizing Primer", 869, 782, "#e9d3c8", "TOP"]],
+            combo: [["4-in-1 Satin Matte Kit", 949, 499, "#d03a63", "47% OFF"], ["Eye Essential Kit", 749, 499, "#8f5fb0", "33% OFF"], ["Ultrastay Lip Trio", 782, 649, "#a8203c", "17% OFF"], ["Glide & Define Trio", 1097, 899, "#e0607e", "18% OFF"], ["Festive Glow Kit", 1499, 1049, "#e8a14a", "30% OFF"], ["Boss Babe Kit", 2999, 1299, "#ff2e7e", "57% OFF"]]
+        };
+        let cart = [];
+        const productPhotos = {
+            lipstick: 'https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=900&q=90',
+            gloss: 'https://images.unsplash.com/photo-1631214524020-7e18db9a8f92?auto=format&fit=crop&w=900&q=90',
+            skin: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=900&q=90',
+            makeup: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=900&q=90',
+            kit: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=90',
+            serum: 'https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=900&q=90'
+        };
+        function photoFor(name) { if (/lipstick|crayon/i.test(name)) return productPhotos.lipstick; if (/gloss/i.test(name)) return productPhotos.gloss; if (/foundation|cream|moistur|primer|powder|serum/i.test(name)) return /serum|moistur/i.test(name) ? productPhotos.serum : productPhotos.skin; if (/kajal|eye/i.test(name)) return productPhotos.makeup; if (/kit|trio|combo|babe/i.test(name)) return productPhotos.kit; return productPhotos.makeup }
+        function productArt(p) {
+            const name = p[0], c = p[3];
+            let kind = 'lipstick';
+            if (/gloss/i.test(name)) kind = 'gloss';
+            else if (/foundation|cream|moistur|primer|powder|serum/i.test(name)) kind = /foundation|powder/i.test(name) ? 'bottle' : 'jar';
+            else if (/kajal|eye/i.test(name)) kind = 'kajal';
+            else if (/palette/i.test(name)) kind = 'palette';
+            else if (/kit|trio|combo|babe/i.test(name)) kind = 'kit';
+            const art = {
+                lipstick: `<g filter="url(#shadow)"><rect x="69" y="116" width="62" height="150" rx="9" fill="#21151a"/><rect x="73" y="121" width="9" height="135" rx="4" fill="#fff" opacity=".13"/><rect x="65" y="100" width="70" height="24" rx="3" fill="#c9a96a"/><rect x="77" y="70" width="46" height="37" rx="4" fill="#f6e6dc"/><path d="M78 70 Q100 34 122 70 L122 101 L78 101Z" fill="${c}"/><path d="M87 71 Q100 48 111 69" fill="none" stroke="#fff" stroke-width="4" opacity=".5"/><rect x="79" y="172" width="42" height="25" rx="2" fill="#fff" opacity=".92"/><text x="100" y="183" font-size="7" text-anchor="middle" fill="#5a2437" font-family="Georgia">ANAIRA</text><text x="100" y="191" font-size="5" text-anchor="middle" fill="#5a2437">VELVET LIP</text></g>`,
+                gloss: `<g filter="url(#shadow)"><rect x="77" y="94" width="46" height="163" rx="17" fill="${c}"/><rect x="83" y="108" width="7" height="130" rx="4" fill="#fff" opacity=".42"/><rect x="73" y="70" width="54" height="34" rx="5" fill="#d5b77b"/><rect x="78" y="63" width="44" height="12" rx="3" fill="#24151b"/><rect x="82" y="157" width="36" height="31" rx="2" fill="#fff" opacity=".88"/><text x="100" y="170" font-size="7" text-anchor="middle" fill="#5a2437" font-family="Georgia">ANAIRA</text><text x="100" y="179" font-size="6" text-anchor="middle" fill="#5a2437">GLOSS</text></g>`,
+                bottle: `<g filter="url(#shadow)"><rect x="80" y="90" width="40" height="170" rx="8" fill="#e6c5ae"/><rect x="86" y="96" width="8" height="152" rx="4" fill="#fff" opacity=".5"/><rect x="76" y="75" width="48" height="24" rx="4" fill="#c9a96a"/><rect x="85" y="55" width="30" height="25" rx="4" fill="#21151a"/><rect x="84" y="145" width="32" height="43" rx="2" fill="#fff" opacity=".88"/><text x="100" y="159" font-size="7" text-anchor="middle" fill="#5a2437" font-family="Georgia">ANAIRA</text><text x="100" y="169" font-size="5.5" text-anchor="middle" fill="#5a2437">SKIN GLOW</text><text x="100" y="178" font-size="5" text-anchor="middle" fill="#5a2437">30 ml</text></g>`,
+                jar: `<g filter="url(#shadow)"><rect x="55" y="133" width="90" height="111" rx="15" fill="${c}"/><rect x="53" y="119" width="94" height="26" rx="6" fill="#c9a96a"/><rect x="60" y="151" width="9" height="78" rx="4" fill="#fff" opacity=".32"/><ellipse cx="100" cy="120" rx="46" ry="8" fill="#f5e4d9"/><rect x="66" y="166" width="68" height="34" rx="3" fill="#fff" opacity=".9"/><text x="100" y="180" font-size="8" text-anchor="middle" fill="#5a2437" font-family="Georgia">ANAIRA</text><text x="100" y="190" font-size="6" text-anchor="middle" fill="#5a2437">RADIANCE</text></g>`,
+                kajal: `<g filter="url(#shadow)"><rect x="91" y="56" width="18" height="190" rx="6" fill="#20171b"/><rect x="95" y="65" width="4" height="168" rx="2" fill="#fff" opacity=".2"/><path d="M91 56 L100 28 L109 56Z" fill="#21151a"/><path d="M97 39 L100 28 L103 39Z" fill="#c9a96a"/><rect x="82" y="151" width="36" height="33" rx="3" fill="#c9a96a"/><text x="100" y="164" font-size="6" text-anchor="middle" fill="#24151b">ANAIRA</text><text x="100" y="173" font-size="6" text-anchor="middle" fill="#24151b">KAJAL</text></g>`,
+                palette: `<g filter="url(#shadow)"><rect x="43" y="81" width="114" height="153" rx="10" fill="#21151a"/><rect x="49" y="88" width="102" height="61" rx="5" fill="#f5e4d9"/><path d="M50 145L150 90" stroke="#fff" stroke-width="2" opacity=".4"/><g>${['#9d435a', '#d4a078', '#c9a96a', '#6c3b4a', '#f0c5a7', '#8e6b80'].map((x, i) => `<circle cx="${65 + (i % 3) * 35}" cy="${170 + Math.floor(i / 3) * 34}" r="12" fill="${x}"/>`).join('')}</g><text x="100" y="106" font-size="8" text-anchor="middle" fill="#5a2437" font-family="Georgia">ANAIRA</text></g>`,
+                kit: `<g filter="url(#shadow)"><rect x="40" y="125" width="120" height="112" rx="8" fill="${c}"/><rect x="34" y="112" width="132" height="25" rx="5" fill="#21151a"/><path d="M100 112V237" stroke="#c9a96a" stroke-width="8"/><path d="M100 112 C73 70 46 90 86 112 C46 87 34 111 100 112 C127 70 154 90 114 112 C154 87 166 111 100 112" fill="none" stroke="#c9a96a" stroke-width="5"/><rect x="51" y="157" width="98" height="38" rx="3" fill="#fff" opacity=".9"/><text x="100" y="173" font-size="9" text-anchor="middle" fill="#5a2437" font-family="Georgia">ANAIRA BEAUTY</text><text x="100" y="185" font-size="6" text-anchor="middle" fill="#5a2437">SIGNATURE SET</text></g>`
+            };
+            return `<img class="product-art product-photo" src="${photoFor(name)}" alt="${name}" loading="lazy" decoding="async" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=900&q=85'">`;
+        }
+        function render(k) { $('#grid').innerHTML = D[k].map((p, i) => `<article class="card product-card" tabindex="0" role="button" aria-label="View ${p[0]}" data-k="${k}" data-i="${i}" style="--card-delay:${i * 75}ms"><div class="pic">${productArt(p)}<span class="tag">${p[4]}</span><span class="quick-view">VIEW DETAILS ↗</span><span class="image-glint"></span></div><h3>${p[0]}</h3><p class="pr">₹${p[2]}${p[1] > p[2] ? `<s>₹${p[1]}</s>` : ''}</p><button class="add-cart" data-k="${k}" data-i="${i}">Add to cart <span aria-hidden="true">＋</span></button></article>`).join('') }
+        render('new');
+        $('#tabs').onclick = e => { const t = e.target.dataset.t; if (!t) return; $$('#tabs button').forEach(b => b.classList.toggle('on', b === e.target)); render(t) };
+        $('#grid').onclick = e => { const b = e.target.closest('button'); if (!b) return; cart.push(D[b.dataset.k][b.dataset.i]); upd(); const c = $('#cb'); c.classList.remove('pop'); void c.offsetWidth; c.classList.add('pop'); b.textContent = 'Added ✓'; setTimeout(() => b.textContent = 'Add to cart', 1200) };
+        function upd() { $('#cb').textContent = `Cart (${cart.length})`; $('#ci').innerHTML = cart.length ? cart.map(p => `<li><span>${p[0]}</span><b>₹${p[2]}</b></li>`).join('') : '<li>Your cart is empty</li>'; $('#tt').textContent = cart.length ? `Total: ₹${cart.reduce((a, p) => a + p[2], 0)}` : '' }
+        upd(); $('#cb').onclick = () => $('#dr').classList.add('on'); $('#cl').onclick = () => $('#dr').classList.remove('on');
+        $('#hm').onclick = () => $('#nv').classList.toggle('on'); $$('nav a').forEach(a => a.onclick = () => $('#nv').classList.remove('on'));
+        const S = Array.from(document.querySelectorAll('.hero .sl')); let n = 0, tm = null, paused = false;
+        const dots = document.getElementById('dots'); if (dots) { dots.innerHTML = ''; S.forEach((_, i) => { const d = document.createElement('button'); d.type = 'button'; d.setAttribute('aria-label', 'Show slide ' + (i + 1)); d.addEventListener('click', () => go(i)); dots.append(d) }); }
+        function go(i) { if (!S.length) return; n = (i + S.length) % S.length; S.forEach((slide, j) => { slide.classList.toggle('on', j === n); slide.setAttribute('aria-hidden', j === n ? 'false' : 'true') }); if (dots) Array.from(dots.querySelectorAll('button')).forEach((d, j) => { d.classList.toggle('on', j === n); d.setAttribute('aria-current', j === n ? 'true' : 'false') }); restartAuto(); }
+        function restartAuto() { if (tm) clearInterval(tm); tm = null; if (!paused && S.length > 1) tm = setInterval(() => { n = (n + 1) % S.length; go(n) }, 4500) }
+        const prev = document.getElementById('pv'), next = document.getElementById('nx'), pause = document.getElementById('pp'); if (prev) prev.addEventListener('click', () => go(n - 1)); if (next) next.addEventListener('click', () => go(n + 1)); if (pause) pause.addEventListener('click', () => { paused = !paused; pause.textContent = paused ? '▶' : '❚❚'; pause.setAttribute('aria-label', paused ? 'Play slider' : 'Pause slider'); restartAuto() });
+        const heroEl = document.getElementById('hero'); if (heroEl) { heroEl.addEventListener('mouseenter', () => { if (tm) { clearInterval(tm); tm = null } }); heroEl.addEventListener('mouseleave', restartAuto); }
+        go(0);
+        const R = [["Super hydrating and non-sticky, my lips look plump in one swipe.", "Priya S."], ["The matte crayon is my daily go-to. Lasts through meetings and chai.", "Ananya K."], ["Finally a foundation that matches my skin tone perfectly.", "Sana M."], ["Kajal stays put all day. Best under ₹249 buy ever.", "Ritu D."], ["Gifted the festive kit to my sister and she loved it.", "Neha P."]];
+        const rc = R.concat(R).map(r => `<div class="rc">★★★★★<br>“${r[0]}”<b>${r[1]}</b></div>`).join(''); $('#rv').innerHTML = rc;
+        $('#sb').onclick = () => { const e = $('#em'); if (/\S+@\S+\.\S+/.test(e.value)) { $('#sb').textContent = 'Thanks ✓'; e.value = '' } else e.focus() };
+        const io = new IntersectionObserver(es => es.forEach(x => { if (!x.isIntersecting) return; x.target.classList.add('in'); x.target.querySelectorAll('[data-n]').forEach(el => { const t = +el.dataset.n; let c = 0; const id = setInterval(() => { c += Math.ceil(t / 40); if (c >= t) { c = t; clearInterval(id) } el.textContent = c + (t >= 100 ? '+' : 'M+'.slice(0, t < 10 ? 2 : 0)) }, 30) }); io.unobserve(x.target) }), { threshold: .15 });
+        $$('.rev').forEach(el => io.observe(el));
+
+        const G = [['Lips', '#5a0f22,#c0456f', '<svg viewBox="0 0 200 200"><path d="M24 104Q62 66 100 86Q138 66 176 104Q140 150 100 156Q60 150 24 104Z" fill="#b3243f"/><path d="M24 104Q100 124 176 104" stroke="#5a0f22" stroke-width="3" fill="none"/><ellipse cx="78" cy="96" rx="22" ry="6" fill="#fff" fill-opacity=".3"/><ellipse cx="108" cy="134" rx="26" ry="6" fill="#fff" fill-opacity=".25"/></svg>'],
+        ['Eyes', '#2b1a3f,#8f5fb0', '<svg viewBox="0 0 200 200"><path d="M14 104Q100 30 186 104Q100 160 14 104Z" fill="#fdf6f2"/><circle cx="100" cy="100" r="30" fill="#6b3b2a"/><circle cx="100" cy="100" r="13" fill="#140a0a"/><circle cx="90" cy="90" r="6" fill="#fff"/><path d="M14 104Q100 30 186 104" stroke="#140a0a" stroke-width="7" fill="none"/><path d="M30 88l-12-14M56 70l-8-16M100 58V40M144 70l8-16M170 88l12-14" stroke="#140a0a" stroke-width="4" stroke-linecap="round"/></svg>'],
+        ['Face', '#9a5f3e,#f0c4a2', '<svg viewBox="0 0 200 200"><circle cx="100" cy="104" r="76" fill="#1d1d1f"/><circle cx="100" cy="104" r="62" fill="#e7b894"/><circle cx="100" cy="104" r="40" fill="#d9a37c"/><path d="M52 80a56 56 0 0 1 56-30" stroke="#fff" stroke-opacity=".5" stroke-width="7" fill="none" stroke-linecap="round"/><circle cx="100" cy="104" r="76" fill="none" stroke="#c9a96a" stroke-width="3"/></svg>'],
+        ['Nails', '#4a1530,#e0507a', '<svg viewBox="0 0 200 200"><rect x="82" y="14" width="36" height="58" rx="6" fill="#1d1d1f"/><rect x="82" y="14" width="8" height="58" fill="#fff" fill-opacity=".15"/><rect x="62" y="70" width="76" height="110" rx="18" fill="#e0507a"/><rect x="72" y="80" width="10" height="90" rx="5" fill="#fff" fill-opacity=".35"/><rect x="62" y="110" width="76" height="6" fill="#c9a96a"/></svg>']];
+        $('#gal').innerHTML = G.map(g => `<a class="gt" href="#shop" style="background:linear-gradient(160deg,${g[1]})">${g[2]}<span>${g[0]}</span></a>`).join('');
+        $('.blob').innerHTML = sv('#b3243f', 'Lipstick');
+        const hv = $('#hv'), pp = $('#pp'); if (hv.play) hv.play().catch(() => { });
+        pp.onclick = () => { if (hv.paused) { hv.play(); pp.textContent = '❚❚' } else { hv.pause(); pp.textContent = '▶' } };
+    </script>
+
+    <style>
+        /* Reliable offline product art, category illustrations and interactive product details */
+        .cat i {
+            display: grid !important;
+            place-items: center !important;
+            background: linear-gradient(145deg, #fff8f2, #edd5dd) !important;
+            color: #8e3a58 !important;
+            font-size: 0 !important;
+            overflow: hidden;
+            transition: transform .35s, box-shadow .35s !important
+        }
+
+        .cat i svg {
+            width: 68%;
+            height: 68%;
+            filter: drop-shadow(0 7px 8px rgba(76, 29, 48, .16));
+            transition: transform .45s
+        }
+
+        .cat:hover i {
+            transform: translateY(-6px) scale(1.04) !important;
+            box-shadow: 0 16px 28px #7a31451c !important
+        }
+
+        .product-card {
+            cursor: pointer;
+            position: relative;
+            animation: productRise .65s both;
+            animation-delay: var(--card-delay, 0ms);
+            transition: transform .35s, box-shadow .35s !important;
+            outline: none
+        }
+
+        .product-card:hover,
+        .product-card:focus-visible {
+            transform: translateY(-8px) !important;
+            box-shadow: 0 20px 40px rgba(69, 22, 42, .13) !important
+        }
+
+        .product-card .pic {
+            background: linear-gradient(145deg, #fff8f2, #edd5dd) !important
+        }
+
+        .product-art {
+            width: 100%;
+            height: 100%;
+            display: block;
+            transition: transform .7s cubic-bezier(.2, .8, .2, 1);
+            transform-origin: 50% 70%
+        }
+
+        .product-photo {
+            object-fit: cover;
+            object-position: center;
+            width: 100%;
+            height: 100%;
+            min-height: 100%;
+            border-radius: 8px
+        }
+
+        .modal-art .product-photo {
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            max-height: 520px;
+            object-fit: cover;
+            display: block
+        }
+
+        .product-card:hover .product-art {
+            transform: scale(1.055) rotate(-1deg)
+        }
+
+        .product-card .quick-view {
+            display: block !important;
+            opacity: 0;
+            transform: translate(-50%, 12px) !important;
+            transition: opacity .25s, transform .25s !important
+        }
+
+        .product-card:hover .quick-view,
+        .product-card:focus-visible .quick-view {
+            opacity: 1;
+            transform: translate(-50%, 0) !important
+        }
+
+        .product-card .image-glint {
+            position: absolute;
+            z-index: 2;
+            top: -20%;
+            left: -70%;
+            width: 45%;
+            height: 145%;
+            transform: rotate(18deg);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .36), transparent);
+            pointer-events: none
+        }
+
+        .product-card:hover .image-glint {
+            animation: productGlint .8s ease
+        }
+
+        .product-card .add-cart {
+            position: relative;
+            z-index: 4;
+            transition: background .25s, color .25s, transform .25s !important
+        }
+
+        .product-card .add-cart:hover {
+            transform: translateY(-2px) !important;
+            background: #4a1a30 !important;
+            color: #fff !important
+        }
+
+        @keyframes productRise {
+            from {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes productGlint {
+            to {
+                left: 140%
+            }
+        }
+
+        #productModal {
+            position: fixed;
+            inset: 0;
+            z-index: 150;
+            background: rgba(22, 8, 15, .68);
+            backdrop-filter: blur(7px);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 18px
+        }
+
+        #productModal.open {
+            display: flex;
+            animation: modalFade .2s ease
+        }
+
+        #productModal .modal-box {
+            position: relative;
+            width: min(760px, 100%);
+            max-height: 92vh;
+            overflow: auto;
+            background: var(--bg);
+            color: var(--fg);
+            display: grid;
+            grid-template-columns: minmax(220px, .9fr) 1.1fr;
+            gap: 28px;
+            padding: 28px;
+            box-shadow: 0 24px 80px #0005;
+            animation: modalRise .3s ease
+        }
+
+        #productModal .modal-art {
+            min-height: 320px;
+            overflow: hidden;
+            background: #f2dfe2
+        }
+
+        #productModal .modal-art svg,
+        #productModal .modal-art img {
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            object-fit: cover
+        }
+
+        #productModal h3 {
+            font: 600 34px/1.1 'Cormorant Garamond', Georgia, serif;
+            margin: 16px 0 10px
+        }
+
+        #productModal .modal-price {
+            font-size: 23px;
+            font-weight: 600;
+            color: var(--ac);
+            margin: 16px 0
+        }
+
+        #productModal .modal-price s {
+            font-size: 15px;
+            color: var(--mut);
+            margin-left: 9px;
+            font-weight: 400
+        }
+
+        #productModal .modal-desc {
+            color: var(--mut);
+            line-height: 1.8;
+            font-size: 14px
+        }
+
+        #productModal .modal-close {
+            position: absolute;
+            right: 12px;
+            top: 10px;
+            z-index: 2;
+            font-size: 28px;
+            width: 40px;
+            height: 40px;
+            background: #fff9;
+            border-radius: 50%
+        }
+
+        #productModal .modal-add {
+            background: #4a1a30;
+            color: white;
+            padding: 13px 20px;
+            margin-top: 12px;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            font-size: 11px;
+            width: 100%
+        }
+
+        #productModal .modal-tag {
+            font-size: 10px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--gd)
+        }
+
+        @keyframes modalFade {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes modalRise {
+            from {
+                transform: translateY(16px) scale(.98);
+                opacity: .6
+            }
+
+            to {
+                transform: none;
+                opacity: 1
+            }
+        }
+
+        @media(max-width:600px) {
+            #productModal .modal-box {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 18px;
+                max-width: 420px
+            }
+
+            #productModal .modal-art,
+            #productModal .modal-art svg,
+            #productModal .modal-art img {
+                min-height: 230px;
+                max-height: 280px
+            }
+
+            #productModal h3 {
+                font-size: 28px;
+                margin-top: 8px
+            }
+
+            .cat i {
+                width: 86px !important;
+                height: 86px !important
+            }
+        }
+
+        /* Reference-inspired image hero slider */
+        .hero {
+            height: min(78vh, 760px) !important;
+            min-height: 360px;
+            background: #f7c5d6 url("./assets/hero-background.webp") center/cover no-repeat !important;
+            position: relative;
+        }
+
+        .hero .hv {
+            display: none !important
+        }
+
+        .hero .sl>div {
+            display: none !important
+        }
+
+        .hero .dots,
+        .hero .pp {
+            display: none !important
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background: linear-gradient(90deg, rgba(255, 255, 255, .02), transparent 55%);
+        }
+
+        .hero-shop-hotspot {
+            position: absolute;
+            z-index: 5;
+            left: 2.5%;
+            top: 73%;
+            width: 13%;
+            height: 16%;
+            display: block;
+            border-radius: 50px;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        .hero-shop-hotspot:focus-visible {
+            outline: 3px solid #fff;
+            outline-offset: 3px
+        }
+
+        header {
+            background: linear-gradient(90deg, rgba(255, 250, 248, .98), rgba(255, 250, 248, .90)), url("./assets/hero-background.webp") center 28%/cover !important;
+        }
+
+        header .logo {
+            cursor: pointer
+        }
+
+        header nav a {
+            cursor: pointer;
+            position: relative;
+            z-index: 3
+        }
+
+        header .ic button,
+        header .hm {
+            cursor: pointer;
+            position: relative;
+            z-index: 10
+        }
+
+        @media(max-width:820px) {
+            .hero {
+                height: 56vw !important;
+                min-height: 250px;
+                background-position: center !important
+            }
+
+            .hero-shop-hotspot {
+                left: 2%;
+                top: 72%;
+                width: 24%;
+                height: 18%
+            }
+
+            header {
+                position: sticky
+            }
+        }
+
+        /* Anaira Beauty: restored branded header and reliable image slider */
+        .ana-header {
+            position: sticky !important;
+            top: 0;
+            z-index: 100 !important;
+            display: flex;
+            align-items: center;
+            gap: clamp(12px, 2.3vw, 34px);
+            padding: 12px clamp(14px, 4vw, 64px) !important;
+            min-height: 88px;
+            background: rgba(255, 250, 248, .97) !important;
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid #ead6dc;
+            box-shadow: 0 5px 24px #5c24340f
+        }
+
+        .ana-header .logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: .95;
+            text-decoration: none;
+            color: #321d28;
+            min-width: 128px;
+            letter-spacing: .15em;
+            font-family: Georgia, serif
+        }
+
+        .ana-header .logo-main {
+            font-size: clamp(22px, 2vw, 30px);
+            font-weight: 800;
+            letter-spacing: .14em
+        }
+
+        .ana-header .logo small {
+            display: block;
+            font: 600 10px/1.8 Arial, sans-serif;
+            letter-spacing: .42em;
+            color: #a94e70;
+            margin-left: 4px
+        }
+
+        .ana-header nav {
+            flex: 1;
+            justify-content: center;
+            gap: clamp(12px, 2vw, 30px)
+        }
+
+        .ana-header nav a {
+            font-size: 13px;
+            letter-spacing: .03em;
+            color: #39232d !important
+        }
+
+        .ana-header nav a:hover {
+            color: #b33e68 !important
+        }
+
+        .header-actions {
+            gap: 8px !important
+        }
+
+        .head-icon {
+            width: 38px;
+            height: 38px;
+            border: 0;
+            background: transparent;
+            color: #492637;
+            font-size: 28px;
+            line-height: 1;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: background .2s, transform .2s
+        }
+
+        .head-icon:hover {
+            background: #f4e3e9;
+            transform: translateY(-2px)
+        }
+
+        .ana-header .cb {
+            border: 0;
+            border-radius: 24px;
+            padding: 12px 17px;
+            background: #351e2a;
+            color: white;
+            font-weight: 700;
+            cursor: pointer
+        }
+
+        .ana-header .cb:hover {
+            background: #a93f68
+        }
+
+        .hero {
+            position: relative !important;
+            isolation: isolate;
+            overflow: hidden !important;
+            height: clamp(440px, 66vw, 690px) !important;
+            min-height: 430px !important;
+            background: #f7dce4 !important
+        }
+
+        .hero .hv {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            opacity: .18;
+            pointer-events: none
+        }
+
+        .hero .sl {
+            position: absolute !important;
+            inset: 0 !important;
+            display: flex !important;
+            align-items: center !important;
+            padding: clamp(28px, 7vw, 100px) !important;
+            opacity: 0 !important;
+            visibility: hidden;
+            transform: translateX(24px) !important;
+            transition: opacity .65s ease, transform .65s ease, visibility .65s !important;
+            pointer-events: none !important;
+            background-size: cover !important;
+            background-position: center !important
+        }
+
+        .hero .sl:nth-of-type(1) {
+            background-image: linear-gradient(90deg, rgba(255, 246, 248, .97) 0%, rgba(255, 246, 248, .80) 43%, rgba(255, 246, 248, .04) 100%), url('https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=1800&q=85') !important
+        }
+
+        .hero .sl:nth-of-type(2) {
+            background-image: linear-gradient(90deg, rgba(255, 246, 248, .97) 0%, rgba(255, 246, 248, .82) 43%, rgba(255, 246, 248, .08) 100%), url('https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=1800&q=85') !important
+        }
+
+        .hero .sl:nth-of-type(3) {
+            background-image: linear-gradient(90deg, rgba(255, 246, 248, .97) 0%, rgba(255, 246, 248, .78) 43%, rgba(255, 246, 248, .05) 100%), url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1800&q=85') !important
+        }
+
+        .hero .sl:nth-of-type(4) {
+            background-image: linear-gradient(90deg, rgba(255, 246, 248, .97) 0%, rgba(255, 246, 248, .78) 43%, rgba(255, 246, 248, .05) 100%), url('https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=1800&q=85') !important
+        }
+
+        .hero .sl.on {
+            opacity: 1 !important;
+            visibility: visible;
+            transform: translateX(0) !important;
+            pointer-events: auto !important;
+            z-index: 2 !important
+        }
+
+        .hero .sl:before,
+        .hero .sl:after {
+            pointer-events: none
+        }
+
+        .hero .sl>div {
+            max-width: 560px;
+            position: relative;
+            z-index: 3
+        }
+
+        .hero .sl small {
+            color: #9c4263
+        }
+
+        .hero .sl h1 {
+            color: #321d28;
+            text-shadow: none
+        }
+
+        .hero .sl p {
+            color: #604653
+        }
+
+        .hero .sl .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #b52e65;
+            color: #fff;
+            border-radius: 28px;
+            padding: 14px 28px;
+            text-decoration: none;
+            font-weight: 800;
+            box-shadow: 0 8px 22px #b52e6530;
+            pointer-events: auto;
+            position: relative;
+            z-index: 5
+        }
+
+        .hero .sl .btn:hover {
+            background: #8d214c;
+            transform: translateY(-2px)
+        }
+
+        .hero .arr,
+        .hero .pp,
+        .hero .dots {
+            z-index: 10 !important
+        }
+
+        .hero .arr {
+            cursor: pointer
+        }
+
+        .hero .dots button {
+            cursor: pointer
+        }
+
+        .hero-shop-hotspot {
+            display: none !important
+        }
+
+        @media(max-width:760px) {
+            .ana-header {
+                min-height: 72px !important;
+                gap: 8px !important;
+                padding: 10px 12px !important;
+                flex-wrap: wrap
+            }
+
+            .ana-header .logo {
+                min-width: 100px;
+                order: 1
+            }
+
+            .ana-header .hm {
+                order: 0
+            }
+
+            .ana-header .header-actions {
+                order: 2;
+                margin-left: auto
+            }
+
+            .ana-header nav {
+                display: none;
+                order: 3;
+                flex-basis: 100%;
+                flex-direction: column;
+                gap: 0;
+                background: #fff8fa;
+                border-radius: 12px;
+                padding: 8px 14px
+            }
+
+            .ana-header nav.on {
+                display: flex !important
+            }
+
+            .ana-header nav a {
+                padding: 10px 4px
+            }
+
+            .head-icon {
+                width: 30px;
+                height: 34px;
+                font-size: 23px
+            }
+
+            .ana-header .cb {
+                padding: 9px 11px;
+                font-size: 12px
+            }
+
+            .hero {
+                min-height: 500px !important;
+                height: 72vh !important
+            }
+
+            .hero .sl {
+                padding: 28px !important;
+                background-position: 60% center !important
+            }
+
+            .hero .sl h1 {
+                font-size: clamp(34px, 10vw, 54px) !important;
+                max-width: 90%
+            }
+
+            .hero .sl p {
+                max-width: 85%;
+                font-size: 14px
+            }
+        }
+
+        /* FINAL FIX: visible slide copy/buttons and independent beauty backgrounds */
+        .hero {
+            background: #f8e7ec !important;
+            background-image: none !important;
+            position: relative !important
+        }
+
+        .hero .sl {
+            display: flex !important;
+            align-items: center !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            z-index: 1 !important;
+            background-size: cover !important;
+            background-repeat: no-repeat !important;
+            background-position: center right !important
+        }
+
+        .hero .sl>div {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            max-width: min(570px, 55%) !important;
+            padding: clamp(18px, 3vw, 40px) !important;
+            background: rgba(255, 249, 250, .84) !important;
+            border: 1px solid rgba(255, 255, 255, .8) !important;
+            border-radius: 8px !important;
+            box-shadow: 0 16px 55px rgba(70, 25, 45, .10) !important;
+            backdrop-filter: blur(5px) !important
+        }
+
+        .hero .sl.on {
+            opacity: 1 !important;
+            visibility: visible !important;
+            z-index: 2 !important
+        }
+
+        .hero .sl:nth-child(1) {
+            background-image: linear-gradient(90deg, rgba(255, 245, 248, .2), rgba(255, 245, 248, 0)), url('https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=1800&q=85') !important
+        }
+
+        .hero .sl:nth-child(2) {
+            background-image: linear-gradient(90deg, rgba(255, 245, 248, .18), rgba(255, 245, 248, 0)), url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1800&q=85') !important
+        }
+
+        .hero .sl:nth-child(3) {
+            background-image: linear-gradient(90deg, rgba(255, 245, 248, .15), rgba(255, 245, 248, 0)), url('https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=1800&q=85') !important
+        }
+
+        .hero .sl small {
+            display: block !important;
+            font: 700 11px/1.5 Arial, sans-serif !important;
+            letter-spacing: .22em !important;
+            color: #a83b62 !important;
+            margin-bottom: 14px !important
+        }
+
+        .hero .sl h1 {
+            display: block !important;
+            font: 600 clamp(34px, 4.5vw, 64px)/1.02 Georgia, serif !important;
+            letter-spacing: -.025em !important;
+            color: #351d2a !important;
+            margin: 0 0 16px !important
+        }
+
+        .hero .sl p {
+            display: block !important;
+            font: 400 clamp(14px, 1.2vw, 17px)/1.7 Arial, sans-serif !important;
+            color: #624653 !important;
+            margin: 0 0 25px !important;
+            max-width: 440px !important
+        }
+
+        .hero .sl .btn {
+            display: inline-flex !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            min-height: 48px !important;
+            padding: 14px 28px !important;
+            background: #b52e65 !important;
+            color: #fff !important;
+            border-radius: 28px !important;
+            font: 700 12px/1 Arial, sans-serif !important;
+            letter-spacing: .12em !important;
+            text-transform: uppercase !important;
+            box-shadow: 0 8px 22px #b52e6530 !important;
+            pointer-events: auto !important;
+            position: relative !important;
+            z-index: 20 !important
+        }
+
+        .hero .arr,
+        .hero .pp,
+        .hero .dots {
+            z-index: 30 !important;
+            display: flex !important
+        }
+
+        .hero .dots {
+            position: absolute !important;
+            bottom: 22px !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            gap: 8px !important
+        }
+
+        .hero .dots button {
+            width: 9px !important;
+            height: 9px !important;
+            border-radius: 50% !important;
+            border: 1px solid #8b3154 !important;
+            background: #fff !important;
+            padding: 0 !important
+        }
+
+        .hero .dots button.on {
+            background: #a8325b !important;
+            transform: scale(1.25)
+        }
+
+        @media(max-width:760px) {
+            .hero {
+                height: 610px !important;
+                min-height: 610px !important
+            }
+
+            .hero .sl {
+                align-items: flex-end !important;
+                padding: 20px !important;
+                background-position: 65% center !important
+            }
+
+            .hero .sl>div {
+                max-width: 100% !important;
+                width: 100% !important;
+                padding: 22px !important;
+                background: rgba(255, 249, 250, .91) !important
+            }
+
+            .hero .sl h1 {
+                font-size: 36px !important
+            }
+
+            .hero .sl p {
+                font-size: 14px !important
+            }
+        }
+    </style>
+    <div id="productModal" role="dialog" aria-modal="true" aria-label="Product details">
+        <div class="modal-box"><button class="modal-close" id="modalClose" aria-label="Close product details">×</button>
+            <div class="modal-art" id="modalArt"></div>
+            <div class="modal-copy"><span class="modal-tag">ANAIRA BEAUTY · SIGNATURE EDIT</span>
+                <h3 id="modalName"></h3>
+                <p class="modal-desc" id="modalDesc"></p>
+                <p class="modal-price" id="modalPrice"></p>
+                <p class="modal-desc">Designed for your everyday beauty ritual. Pair it with your favourite Anaira
+                    essentials for a complete look.</p><button class="modal-add" id="modalAdd">Add to cart</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (() => {
+            const catArt = [
+                `<svg viewBox="0 0 100 100"><path d="M35 26L50 15 65 26 62 73Q50 84 38 73Z" fill="#a83d61"/><rect x="36" y="23" width="28" height="9" rx="2" fill="#c9a96a"/><path d="M39 26L50 17 61 26" fill="#e77b99"/><rect x="39" y="49" width="22" height="14" fill="#fff" opacity=".9"/><text x="50" y="58" font-size="4.5" text-anchor="middle" fill="#6d2943">ANAIRA</text></svg>`,
+                `<svg viewBox="0 0 100 100"><path d="M12 52Q50 12 88 52Q50 87 12 52Z" fill="#fff" stroke="#8b5471" stroke-width="3"/><circle cx="50" cy="50" r="17" fill="#9b6b4d"/><circle cx="50" cy="50" r="8" fill="#24151b"/><circle cx="44" cy="44" r="4" fill="#fff"/><path d="M16 49Q50 12 84 49" fill="none" stroke="#24151b" stroke-width="5"/></svg>`,
+                `<svg viewBox="0 0 100 100"><circle cx="50" cy="51" r="34" fill="#c9a96a"/><circle cx="50" cy="51" r="27" fill="#e6b99b"/><circle cx="50" cy="51" r="17" fill="#f4d8c4"/><path d="M29 33Q48 14 66 31" fill="none" stroke="#fff" stroke-width="4" opacity=".7"/></svg>`,
+                `<svg viewBox="0 0 100 100"><rect x="36" y="19" width="28" height="62" rx="14" fill="#b4476b"/><rect x="42" y="25" width="6" height="48" rx="3" fill="#fff" opacity=".45"/><rect x="34" y="17" width="32" height="12" rx="3" fill="#c9a96a"/></svg>`,
+                `<svg viewBox="0 0 100 100"><rect x="29" y="39" width="42" height="42" rx="8" fill="#e5bfa7"/><rect x="25" y="31" width="50" height="13" rx="4" fill="#c9a96a"/><rect x="36" y="51" width="28" height="18" fill="#fff" opacity=".8"/><text x="50" y="62" font-size="5" text-anchor="middle" fill="#7a3145">GLOW</text></svg>`,
+                `<svg viewBox="0 0 100 100"><rect x="22" y="39" width="56" height="42" rx="4" fill="#b4476b"/><rect x="18" y="30" width="64" height="15" rx="4" fill="#24151b"/><path d="M50 30V80" stroke="#c9a96a" stroke-width="5"/><path d="M50 30Q30 9 28 26Q35 35 50 30Q70 9 72 26Q65 35 50 30" fill="none" stroke="#c9a96a" stroke-width="3"/></svg>`,
+                `<svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="34" fill="#fff" stroke="#c9a96a" stroke-width="4"/><text x="50" y="45" font-size="11" text-anchor="middle" fill="#8d3d5a">UNDER</text><text x="50" y="60" font-size="15" text-anchor="middle" fill="#8d3d5a">₹249</text></svg>`
+            ];
+            document.querySelectorAll('.cat i').forEach((el, i) => el.innerHTML = catArt[i] || catArt[0]);
+            const modal = document.getElementById('productModal'); let activeProduct = null;
+            function openProduct(k, i) { const p = D[k] && D[k][i]; if (!p) return; activeProduct = { p, k, i }; document.getElementById('modalArt').innerHTML = productArt(p); document.getElementById('modalName').textContent = p[0]; document.getElementById('modalDesc').textContent = `Meet ${p[0]} — an Anaira Beauty essential created to bring a polished, luxurious finish to your everyday routine.`; document.getElementById('modalPrice').innerHTML = `₹${p[2]}${p[1] > p[2] ? ` <s>₹${p[1]}</s>` : ''}`; document.getElementById('modalAdd').textContent = 'Add to cart'; modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+            function closeProduct() { modal.classList.remove('open'); document.body.style.overflow = ''; }
+            document.getElementById('modalClose').addEventListener('click', closeProduct); modal.addEventListener('click', e => { if (e.target === modal) closeProduct() }); document.addEventListener('keydown', e => { if (e.key === 'Escape') closeProduct() });
+            // Product card opens detail view; cart buttons keep their existing cart behaviour.
+            document.getElementById('grid').addEventListener('click', e => { if (e.target.closest('.add-cart')) return; const card = e.target.closest('.product-card'); if (card) openProduct(card.dataset.k, Number(card.dataset.i)); });
+            document.getElementById('grid').addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('product-card')) { e.preventDefault(); openProduct(e.target.dataset.k, Number(e.target.dataset.i)); } });
+            document.getElementById('modalAdd').addEventListener('click', () => { if (!activeProduct) return; cart.push(activeProduct.p); upd(); document.getElementById('modalAdd').textContent = 'Added to cart ✓'; const cb = document.getElementById('cb'); cb.classList.remove('pop'); void cb.offsetWidth; cb.classList.add('pop'); });
+            // Category links jump to the catalogue and select the matching product collection.
+            document.querySelectorAll('.cat').forEach((el, i) => el.addEventListener('click', () => { const tab = i === 5 ? 'combo' : i === 6 ? 'best' : i === 1 ? 'best' : 'new'; const b = document.querySelector(`#tabs button[data-t="${tab}"]`); if (b) b.click(); }));
+            // Remove external image dependence entirely; all category and product art is embedded SVG.
+        })();
+    </script>
+
+
+    <script>
+        (() => {
+            const menu = document.getElementById('hm'), nav = document.getElementById('nv'), logo = document.querySelector('.logo'), cartBtn = document.getElementById('cb');
+            if (menu && nav) { menu.addEventListener('click', e => { e.preventDefault(); nav.classList.toggle('on'); }); nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => nav.classList.remove('on'))); document.addEventListener('click', e => { if (!nav.contains(e.target) && !menu.contains(e.target)) nav.classList.remove('on') }); }
+            if (logo) { logo.setAttribute('role', 'button'); logo.setAttribute('tabindex', '0'); const go = () => window.scrollTo({ top: 0, behavior: 'smooth' }); logo.addEventListener('click', go); logo.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go() } }) }
+            if (cartBtn) { cartBtn.addEventListener('click', () => { const drawer = document.getElementById('dr'); if (drawer) { drawer.classList.add('on'); drawer.style.right = '0'; drawer.style.display = 'block'; drawer.scrollIntoView({ block: 'nearest', behavior: 'smooth' }); } }) }
+        })();
+
+        // Header utility controls
+        const searchBtn = document.getElementById('searchBtn'); if (searchBtn) searchBtn.addEventListener('click', () => { const q = prompt('Search Anaira Beauty products'); if (q && q.trim()) { const grid = document.getElementById('grid'); document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth' }); setTimeout(() => { const cards = Array.from(document.querySelectorAll('#grid .product-card')); const match = cards.find(c => c.innerText.toLowerCase().includes(q.trim().toLowerCase())); if (match) { match.scrollIntoView({ behavior: 'smooth', block: 'center' }); match.click() } else alert('No matching product found. Try lipstick, kajal, face or skin.'); }, 450) } });
+        const wishBtn = document.getElementById('wishBtn'); if (wishBtn) wishBtn.addEventListener('click', () => document.getElementById('shop')?.scrollIntoView({ behavior: 'smooth' }));
+        const accountBtn = document.getElementById('accountBtn'); if (accountBtn) accountBtn.addEventListener('click', () => alert('Welcome to Anaira Beauty! Account sign-in can be connected when you add customer accounts.'));
+    </script>
+</body>
+
+</html>
